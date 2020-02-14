@@ -1,0 +1,18 @@
+<form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+  <div class="col-md-8 offset-md-2">
+    <div>
+      <input class="form-control" type="text"  [formControl]="todoItem" formControlName="inputTodo">
+    </div>
+    <div class="alert alert-danger" role="alert"
+         *ngIf="todoForm.get('inputTodo').invalid && todoForm.get('inputTodo').touched">Lỗi
+    </div>
+    <ul>
+      <li
+        [class.complete]="todo.complete"
+        *ngFor="let todo of todoList; index as i">
+        {{todo.content}}
+      </li>
+    </ul>
+  </div>
+
+</form>
